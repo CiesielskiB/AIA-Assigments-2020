@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+            a{ margin: 10px; }
+            #content{ border: 1px solid black; padding: 20px; width: 50%; }
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            function get(url) {
+
+                    return new Promise(function(resolve, reject) {
+                    var req = new XMLHttpRequest();
+                    req.open('GET', url);
+                    
+                    req.onload = function() {
+                    if (req.status == 200) {
+                    resolve(req.response);
+                    }
+                    else {
+                        reject(Error(req.statusText));
+                    }
+                    };
+                    req.onerror = function() {
+                    reject(Error("Network Error"));
+                    };
+                
+                    req.send();
+                    });
+            }    
+        
+            $(function() {
+                get('story.json').then(function(response) {
+                    let thisA = $(this);
+                    $('#content').fadeOut('medium', function() {
+                        $('#content').load('AJAX'+ thisA.attr('href'), function() {
+                            $('#content').fadeIn();
+                        });
+                    });
+                    return false;
+                });
+                }, function(error) {
+                    console.error("Failed!", error);
+                })
+                $('a').click(function() {
+
+               
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="Selectors.html">Page 1</a>
+                <a href="Styles.html">Page 2</a>
+                <a href="Events.html">Page 3</a>
+            </nav>
+        </header>
+        <div id="content">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+            button{ margin: 10px; }
+            #content{ border: 1px solid black; padding: 20px; width: 50%; }
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            function get(url) {
+              return new Promise(function(resolve, reject) {
+                var req = new XMLHttpRequest();
+                req.open('GET', url);
+                
+                req.onload = function() {
+                  if (req.status == 200) {
+                    resolve(req.response);
+                  }
+                  else {
+                    reject(Error(req.statusText));
+                  }
+                };
+
+                req.onerror = function() {
+                  reject(Error("Network Error"));
+                };
+                req.send();
+              });
+            }
+
+            $(function() {
+                $('#getSite').click(function() {
+                    let url = $('#url').val()
+                    get(url).then(function(response) {
+                        console.log(JSON.stringify(response));
+                        $('#content').empty()
+                        $('#content').append(response) 
+                    }, function(error) {
+                        alert("Failed!", error)
+                        console.error("Failed!", error);
+                    });
+                    
+                });
+               
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <input id="url" type="text" name="url"\>
+                <button id="getSite">get site</button>
+            </nav>
+        </header>
+        <div id="content">
+        </div>
+    </body>
+</html>

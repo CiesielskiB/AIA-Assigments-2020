@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>jQuery</title>
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('button').click(function() {
+                    $.getJSON("guitars.json", function(data) {
+                    $.each(data.Guitars.Guitar, function(i, item) {
+                            $('#jsonList').append(`<li>Brand - ${item.Brand}, model - ${item.Model}</li>`);
+                        });
+                    });
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <div>
+            <button>Get Json</button>
+            <ul id="jsonList">
+
+            </ul>
+        </div>
+
+    </body>
+</html>
