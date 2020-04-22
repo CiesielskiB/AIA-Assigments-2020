@@ -1,0 +1,37 @@
+[
+        {
+            "Id" : 1,
+            "Name" : "Item1",
+            "ImageUrl" : "https://i.picsum.photos/id/74/200/200.jpg",
+            "Description" : "Item1",
+            "Rating" : 5
+        },
+        {
+            "Id" : 2,
+            "Name" : "Item2",
+            "ImageUrl" : "https://i.picsum.photos/id/61/200/200.jpg",
+            "Description" : "Item2",
+            "Rating" : 4
+        },
+        {
+            "Id" : 3,
+            "Name" : "Item3",
+            "ImageUrl" : "https://i.picsum.photos/id/91/200/200.jpg",
+            "Description" : "Item3",
+            "Rating" : 3
+        },
+        {
+            "Id" : 4,
+            "Name" : "Item4",
+            "ImageUrl" : "https://i.picsum.photos/id/42/200/200.jpg",
+            "Description" : "Item4",
+            "Rating" : 2
+        },
+        {
+            "Id" : 5,
+            "Name" : "Item5",
+            "ImageUrl" : "https://i.picsum.photos/id/33/200/200.jpg",
+            "Description" : "Item5",
+            "Rating" : 1
+        }
+    ]
