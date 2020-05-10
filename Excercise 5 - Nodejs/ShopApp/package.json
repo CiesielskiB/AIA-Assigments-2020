@@ -1,0 +1,11 @@
+{
+  "name": "shopapp",
+  "version": "1.0.0",
+  "description": "cool excercise 5",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Bartosz Ciesielski",
+  "license": "ISC"
+}
